@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons">
+  <link rel="stylesheet" href="styles/bootstrap-material-design.min.css">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="icon" type="image/png" href="/images/logo.png">
+  <title>Indecisive DJ</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-dark fixed-top">
+    <a class="navbar-brand" href="#">Indecisive DJ</a>
+    <button id="signOutButton" type="button" class="btn text-light">Sign Out</button>
+  </nav>
+  <div class="bmd-layout-container bmd-drawer-f-l bmd-drawer-overlay">
+    <!-- <header class="bmd-layout-header">
+      <div class="navbar navbar-dark bg-faded fixed-top justify-content-start">
+        <button class="navbar-toggler" type="button" data-toggle="drawer" data-target="#dw-s2">
+          <span class="sr-only">Toggle drawer</span>
+          <i class="material-icons">menu</i>
+        </button>
+        <a class="navbar-brand" href="#">Indecisive DJ</a>
+      </div>
+    </header> -->
+    <div id="dw-s2" class="bmd-layout-drawer bg-faded">
+      <header>
+        <a class="navbar-brand">&nbsp;&nbsp;Indecisive DJ</a>
+      </header>
+    </div>
+    <hr>
+    <hr>
+    <div class="container">
+        <!-- used to make api calls from tut -->
+        <input type="hidden" id="hidden_token">
+        <!-- select genre -->
+        <div class="col-sm-6 form-group row mt-4">
+          <label class="form-label col-sm-6">Available Genres</label>
+          <select id="select_genre" class="form-control col-sm-10">
+            <option>Select a Genre</option>
+          </select>
+        </div>
+        <!-- select source to pull songs from genre from -->
+        <div class="col-sm-6 form-group row">
+          <label class="form-label col-sm-6">Available Sources</label>
+          <select id="select_playlist" class="form-control col-sm-10"></select>
+        </div>
+        <!-- select # songs from playlists to show -->
+        <div class="col-sm-6 form-group row">
+          <label class="form-label col-sm-2"># Desired Songs</label>
+          <input type="number" id="select_numSongs" class="form-control col-sm-10">
+        </div>
+        <!-- select # minutes from playlists to show -->
+        <div class="col-sm-6 form-group row">
+          <label class="form-label col-sm-2">Desired Minutes</label>
+          <input type="number" id="select_minutes" class="form-control col-sm-10">
+        </div>
+        <!-- submit selections -->
+        <div class="col-sm-6 row form-group">
+          <button type="submit" id="submitButton" class="btn col-sm-10">SUBMIT</button>
+        </div>
+
+        <div class="popup" onclick="popupFunction()">
+          <b>How to use Indecisive DJ</b>
+          <span class="popuptext" id="infoPopup">
+            1.) Select a genre
+            <br>
+            2.) Select a source
+            <br>
+            3.) Enter your desired # of songs or minutes.
+            <br>
+            Note: Entering both minutes and songs will use minutes to populate.
+          </span>
+        </div>
+        <script>
+          function popupFunction() {
+            var popup = document.getElementById("infoPopup");
+            popup.classList.toggle("show");
+          }
+          </script>
+
+        <div id="results" class="row col-sm-6 px-0">
+          <i>Your results will show up here once you enter your request.</i>
+        </div>
+      <div class="row">
+        <div class="col-sm-6 px-0">
+          <div class="list-group song-list">
+            <!-- populates through js -->
+          </div>
+        </div>
+        <div class="offset-md-1 col-sm-4" id="song-detail"></div>
+      </div>
+    </div>
+  </div>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/popper.js"></script>
+  <script src="scripts/bootstrap-material-design.js"></script>
+  <script>$("body").bootstrapMaterialDesign();</script>
+  <script src="/__/firebase/7.18.0/firebase-app.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-analytics.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-auth.js"></script>
+  <script src="/__/firebase/7.18.0/firebase-firestore.js"></script>
+  <script src="/__/firebase/init.js"></script>
+  <script src="scripts/rosefire.min.js"></script>
+  <script src="scripts/main.js"></script>
+  <script src="scripts/work.js"></script>
+</body>
+
+</html>
